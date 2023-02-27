@@ -74,9 +74,9 @@ function SignIn(){
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
+            <div type="submit" className="btn btn-primary w-1/2">
               Log In
-            </button>
+            </div>
           </div>
           <p className="forgot-password text-right mt-2">
             Don't have an Account ?<a href="#"> Sign Up</a>
