@@ -49,7 +49,7 @@ export const Header = () => {
             </li>
           </ul>
           <div className="btn">
-            <button type="text" onClick={openModal}>REGISTER</button>
+            <button type="text" onClick={openModal}>Sign In</button>
             <Modal
               isOpen={modalIsOpen}
               onAfterOpen={afterOpenModal}
