@@ -1,5 +1,4 @@
-import './PostBlogStyles.css'
-import './ResponsiveBlogCard.css'
+import React from "react"
 
 export const PostBlog = (props) => {
     return (
