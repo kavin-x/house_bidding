@@ -13,7 +13,6 @@ function Container() {
   return (
     <>
       <Header />
-
       <Hero />
       <BestRecipes />
       <BestServices />
