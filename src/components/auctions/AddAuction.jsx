@@ -1,11 +1,11 @@
-import { Button, Form, Modal, Alert, Row, Col } from 'react-bootstrap';
-import React, { useContext, useRef, useState } from 'react';
-import { AuthContext } from '../../context/AuthContext';
+import { Button, Form, Modal, Alert, Row, Col } from "react-bootstrap";
+import React, { useContext, useRef, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export const AddAuction = ({ setAuction }) => {
-  const [showForm, setShowForm] = useState(false);
-  const [error, setError] = useState('');
 
+  const [showForm, setShowForm] = useState(false);
+  const [error, setError] = useState("");
   const itemTitle = useRef();
   const itemDesc = useRef();
   const startPrice = useRef();
@@ -15,6 +15,7 @@ export const AddAuction = ({ setAuction }) => {
   const bathrooms = useRef();
   const surface = useRef();
   const year = useRef();
+  const type = useRef();
   const address = useRef();
   const country = useRef();
   const agentname = useRef();
@@ -25,24 +26,26 @@ export const AddAuction = ({ setAuction }) => {
   const openForm = () => setShowForm(true);
   const closeForm = () => setShowForm(false);
 
-  const imgTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+  const imgTypes = ["image/png", "image/jpeg", "image/jpg"];
 
   const submitForm = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     if (!imgTypes.includes(itemImage.current.files[0].type)) {
-      return setError('Please use a valid image');
+      return setError("Please use a valid image");
     }
-    
+
     let currentDate = new Date();
-    let dueDate = currentDate.setHours(
+
+    let dueDate = currentDate.setMinutes(
       currentDate.getHours() + itemDuration.current.value
     );
 
     let newAuction = {
       email: currentUser.email,
       title: itemTitle.current.value,
+      type: type.current.value,
       desc: itemDesc.current.value,
       curPrice: startPrice.current.value,
       bedrooms: bedrooms.current.value,
@@ -103,7 +106,7 @@ export const AddAuction = ({ setAuction }) => {
                 </Form.Group>
               </Col>
             </Row>
-              <Row>
+            <Row>
               <Col>
                 <Form.Group>
                   <Form.Label>Year of Construction</Form.Label>
@@ -139,10 +142,28 @@ export const AddAuction = ({ setAuction }) => {
                 </Form.Group>
               </Col>
               <Col>
-                <Form.Group>
-                  <Form.Label>Country</Form.Label>
-                  <Form.Control type="text" required ref={country} />
-                </Form.Group>
+                <label for="exampleFormControlSelect1">Country</label>
+                <select
+                  class="form-control"
+                  id="exampleFormControlSelect1"
+                  ref={country}
+                >
+                  <option>United States</option>
+                  <option>Canada</option>
+                </select>
+              </Col>
+            </Row>
+            <Row>
+            <Col>
+                <label for="exampleFormControlSelect1">Type</label>
+                <select
+                  class="form-control"
+                  id="exampleFormControlSelect1"
+                  ref={type}
+                >
+                  <option>Apartment</option>
+                  <option>House</option>
+                </select>
               </Col>
             </Row>
             <Row>
@@ -174,7 +195,7 @@ export const AddAuction = ({ setAuction }) => {
                 <Form.Group>
                   <Form.Label>Item Image</Form.Label>
                   <Form.Control
-                  type='file'
+                    type="file"
                     label="Select Item Image"
                     custom
                     required
