@@ -49,8 +49,10 @@ export const signInUserWithEmailAndPassword = async(email,password) =>{
 }
 
 export const signOutUser = async() => { signOut(auth).then(() => console.log("signed out") ) }
-console.log(firebaseapp)
 
+let db = firebase.firestore();
+ 
+export default db;
 export const timestamp = serverTimestamp();
 export const firestoreApp = firebaseapp.firestore();
 export const storageApp = firebaseapp.storage();

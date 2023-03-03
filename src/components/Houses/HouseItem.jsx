@@ -75,28 +75,28 @@ const HouseItem = ({days, hours, minutes, seconds, completed, props}) => {
                   Bid
                 </div>
               ) : props.owner.email === props.item.email ? (
-                <div
+                <Button p={{base: 3, md: 2}} size="100%"
                   onClick={() => props.endAuction(props.item.id)}
-                  className="btn btn-outline-secondary"
+                 
                 >
                   Cancel Auction
-                </div>
+                </Button>
               ) : props.owner.email === props.item.curWinner ? (
                 <p className="display-6">Winner</p>
               ) : (
-                <div
+                <Button p={{base: 3, md: 2}} size="100%"
                   onClick={() =>
                     props.bidAuction(props.item.id, props.item.curPrice)
                   }
-                  className="btn btn-outline-secondary"
+                 
                 >
                   Bid
-                </div>
+                </Button>
               )}
             </div>
           </div>
         </div>
-            <Button  p={{base: 3, md: 2}} size="100%">bid</Button>
+            
         </VStack>
         </Stack>
     </Flex>
@@ -106,7 +106,6 @@ const HouseItem = ({days, hours, minutes, seconds, completed, props}) => {
 export default HouseItem;
 
 export const AuctionCard = ({ item }) => {
-  console.log(item);
   let expiredDate = item.duration;
   const { currentUser, bidAuction, endAuction } = useContext(AuthContext);
 

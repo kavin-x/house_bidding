@@ -4,10 +4,10 @@ const Form = ({searchedHouse}) => {
   return (
     <VStack border='1px' borderColor='pink.100' boxShadow='md' px='5' py='6'>
         <HStack>
-            <Image borderRadius='full' boxSize='75px' src={searchedHouse.agent.image} />
+            {/* <Image borderRadius='full' boxSize='75px' src={searchedHouse.agent.image} /> */}
             <Box>
-                <Text mb='-3px' fontWeight='extrabold' fontSize='15px'>{searchedHouse.agent.name}</Text>
-                <Text style={{fontSize: '12px'}}>+{searchedHouse.agent.phone}</Text>
+                <Text mb='-3px' fontWeight='extrabold' fontSize='15px'>{searchedHouse.agentname}</Text>
+                <Text style={{fontSize: '12px'}}>+{searchedHouse.agentnumber}</Text>
             </Box>
         </HStack>
 

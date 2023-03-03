@@ -3,14 +3,16 @@ import { BiBed, BiBath, BiArea } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import Form from "./Form";
 import { useFirestore } from "../../hooks/useFirestore";
+import { useEffect, useState } from "react";
+import db, { firestoreApp } from "../../utils/firebase";
 
 const HouseDetails = () => {
-  const { docs } = useFirestore('auctions');
-  console.log(docs);
+  const [info , setInfo] = useState(JSON.parse(localStorage.getItem("housedata")));
+  console.log(info);
   const {propertyId} = useParams();
   
-  const searchedHouse = docs.find(house=> house.id== propertyId)
-  console.log(searchedHouse);
+  const searchedHouse = info.find(house=> house.id== propertyId)
+  console.log(searchedHouse.imgUrl);
 
   return (
     <>
@@ -29,17 +31,17 @@ const HouseDetails = () => {
 
       <Stack direction={{base:'column', lg: 'row'}} gap='6' align='flex-start'>
         <VStack align='left' maxW='640px'>
-          {/* <Image src={searchedHouse.imageLg} alt='house' /> */}
+          <img src={searchedHouse.imgUrl} alt='house' />
 
           <Stack py='10px' spacing={{sm: '3', md: '5'}} direction={{base: 'column', md: 'row'}}>
             <HStack>
                 <BiBed style={{ color: "#D53F8C" }} />
-                <Text fontSize="14px">{searchedHouse.bedrooms} Bedrooms</Text>
+                <Text fontSize="14px">{searchedHouse.bedrooms} Bedroom</Text>
             </HStack>
 
             <HStack>
                 <BiBath style={{ color: "#D53F8C" }} />
-                <Text fontSize="14px">{searchedHouse.bathrooms} Bathrooms</Text>
+                <Text fontSize="14px">{searchedHouse.bathrooms} Bathroom</Text>
             </HStack>
 
             <HStack>

@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import { Container } from '@chakra-ui/react'
 
-
+import Header from './components/Header/Header';
 import Home from './routes/Home';
 import PropertyDetails from './routes/PropertyDetails';
 import Footer from './components/Footer'
-
+import HouseProvider from './context/HouseContext';
 import { AuthProvider } from './context/AuthContext';
 import HouseDetails from './components/PropertyDetails/HouseDetails';
 import SignUp from './components/sign-up/sign-up'
@@ -15,7 +15,7 @@ import { AuctionBody } from './components/auctions/Body';
 
 const App = () => {
   return (
- 
+    <HouseProvider>
 
       <AuthProvider>
       <NavComp />
@@ -42,7 +42,7 @@ const App = () => {
       </Container>
       <Footer />
       </AuthProvider>
-
+    </HouseProvider>
   )
 }
 

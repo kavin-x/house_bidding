@@ -4,7 +4,7 @@ import { firestoreApp } from '../utils/firebase';
 export const useFirestore = (collection) => {
   const [docs, setDocs] = useState([]);
 
-  useEffect(async () => {
+  useEffect(() => {
     const subscribe = firestoreApp.collection(collection).onSnapshot((snap) => {
       let documents = [];
       snap.forEach((doc) => {
@@ -14,6 +14,7 @@ export const useFirestore = (collection) => {
       });
       console.log(documents);
       setDocs(documents);
+      localStorage.setItem("housedata", JSON.stringify(documents));
     });
 
     return () => subscribe();

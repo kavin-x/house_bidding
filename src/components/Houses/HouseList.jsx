@@ -9,6 +9,7 @@ import HouseItem, { AuctionCard } from './HouseItem';
 const HouseList = () => {
   const { houses, isLoading } = useContext(HouseContext);
   const { docs } = useFirestore("auctions");
+  
   if(isLoading){
     return (
       <Center>

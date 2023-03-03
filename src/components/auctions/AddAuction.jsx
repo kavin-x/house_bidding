@@ -17,6 +17,8 @@ export const AddAuction = ({ setAuction }) => {
   const year = useRef();
   const address = useRef();
   const country = useRef();
+  const agentname = useRef();
+  const agentnumber = useRef();
 
   const { currentUser } = useContext(AuthContext);
 
@@ -32,7 +34,7 @@ export const AddAuction = ({ setAuction }) => {
     if (!imgTypes.includes(itemImage.current.files[0].type)) {
       return setError('Please use a valid image');
     }
-
+    
     let currentDate = new Date();
     let dueDate = currentDate.setHours(
       currentDate.getHours() + itemDuration.current.value
@@ -51,6 +53,8 @@ export const AddAuction = ({ setAuction }) => {
       address: address.current.value,
       duration: dueDate,
       itemImage: itemImage.current.files[0],
+      agentname: agentname.current.value,
+      agentnumber: agentnumber.current.value,
     };
 
     setAuction(newAuction);
@@ -137,7 +141,21 @@ export const AddAuction = ({ setAuction }) => {
               <Col>
                 <Form.Group>
                   <Form.Label>Country</Form.Label>
-                  <Form.Control type="number" required ref={country} />
+                  <Form.Control type="text" required ref={country} />
+                </Form.Group>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Group>
+                  <Form.Label>Agent Name</Form.Label>
+                  <Form.Control type="text" required ref={agentname} />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group>
+                  <Form.Label>Agent Number</Form.Label>
+                  <Form.Control type="number" required ref={agentnumber} />
                 </Form.Group>
               </Col>
             </Row>
