@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import Form from "./Form";
 import { useFirestore } from "../../hooks/useFirestore";
 import { useEffect, useState } from "react";
-import db, { firestoreApp } from "../../utils/firebase";
 
 const HouseDetails = () => {
   const [info , setInfo] = useState(JSON.parse(localStorage.getItem("housedata")));

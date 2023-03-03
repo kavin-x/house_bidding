@@ -19,8 +19,6 @@ export const AuctionBody = () => {
         {globalMsg && <Alert variant="info">{globalMsg}</Alert>}
 
         {currentUser && <AddAuction setAuction={setAuction} />}
-
-        
       </div>
     </div>
   );
