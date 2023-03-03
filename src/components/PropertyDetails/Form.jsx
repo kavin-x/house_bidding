@@ -6,8 +6,8 @@ const Form = ({searchedHouse}) => {
         <HStack>
             {/* <Image borderRadius='full' boxSize='75px' src={searchedHouse.agent.image} /> */}
             <Box>
-                <Text mb='-3px' fontWeight='extrabold' fontSize='15px'>{searchedHouse.agentname}</Text>
-                <Text style={{fontSize: '12px'}}>+{searchedHouse.agentnumber}</Text>
+                <Text mb='-3px' fontWeight='extrabold' fontSize='15px'>Name : {searchedHouse.agentname}</Text>
+                <Text mb='-3px' fontWeight='extrabold' fontSize='15px'>Call : {searchedHouse.agentnumber}</Text>
             </Box>
         </HStack>
 
@@ -19,7 +19,6 @@ const Form = ({searchedHouse}) => {
                 <Textarea my='2' placeholder='Message*' size='sm'  defaultValue='Hello, I am interested in [Modern apartment]' />
                 <HStack my='2'>
                     <Button w='full' px='4'>Send Message</Button>
-                    <Button w={{base: 'full', md: '50%'}} variant='outline'>Call</Button>
                 </HStack>
             </form>
         </VStack>

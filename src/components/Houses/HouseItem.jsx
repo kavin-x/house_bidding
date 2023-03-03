@@ -58,13 +58,12 @@ const HouseItem = ({days, hours, minutes, seconds, completed, props}) => {
             
             </HStack>
             <div className="card-body">
-          <p className="lead display-6">{props.item.title}</p>
+          <p className="lead display-10">{props.item.title}</p><br/>
           <div className="d-flex jsutify-content-between align-item-center">
             <h5>
               {days * 24 + hours} hr: {minutes} min: {seconds} sec
             </h5>
           </div>
-          <p className="card-text">{props.item.desc}</p>
           <div className="d-flex justify-content-between align-item-center">
             <div>
               {!props.owner ? (
