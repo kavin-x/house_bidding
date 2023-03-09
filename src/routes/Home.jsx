@@ -13,7 +13,7 @@ const Home = () => {
       <Search />
       <HouseList />
       <AuthProvider>
-        <AuctionBody/>
+      <AuctionBody/>
       </AuthProvider>
     </>
   )

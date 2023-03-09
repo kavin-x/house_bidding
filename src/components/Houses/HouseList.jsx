@@ -9,7 +9,7 @@ import HouseItem, { AuctionCard } from './HouseItem';
 const HouseList = () => {
   const { houses, isLoading } = useContext(HouseContext);
   const { docs } = useFirestore("auctions");
-  
+  console.log(docs);
   if(isLoading){
     return (
       <Center>
@@ -31,7 +31,7 @@ const HouseList = () => {
   return (
     <Grid my='3' rowGap='4' gridTemplateColumns='repeat(auto-fit, minmax(300px, 1fr))' 
     >
-      {docs &&
+      {
         docs.map(doc=>
           <Link to={`/property-details/${doc.id}`} key={doc.id}>
             <AuctionCard key={doc.id} item={doc} />

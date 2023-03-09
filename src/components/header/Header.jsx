@@ -7,12 +7,13 @@ import NavMobile from './NavMobile';
 const Header = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
   const {currentUser,logout} = useContext(AuthContext)
+  
 
   return (
     <chakra.header id="header" borderBottom='1px solid rgb(0,0,0,0.3)'>
       <Flex w='100%' py='5' align='center' justify='space-between'>
         <Link to='/'>
-          <Heading fontSize='3xl' color='pink.700'>Estatery.</Heading>
+          <Heading fontSize='3xl' color='pink.700'>Estatery</Heading>
         </Link>
         {
           isDesktop ? (

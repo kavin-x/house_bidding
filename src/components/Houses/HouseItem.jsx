@@ -107,6 +107,7 @@ export default HouseItem;
 export const AuctionCard = ({ item }) => {
   let expiredDate = item.duration;
   const { currentUser, bidAuction, endAuction } = useContext(AuthContext);
+  console.log(currentUser,'sfdh');
   return (
     <Countdown
       owner={currentUser}

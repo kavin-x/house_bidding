@@ -9,8 +9,8 @@ import { ProgressBar } from './ProgressBar';
 export const AuctionBody = () => {
   const [auction, setAuction] = useState(null);
   const { currentUser, globalMsg } = useContext(AuthContext);
-  const { docs } = useFirestore('auctions');
-
+  
+  console.log(currentUser);
   return (
     <div className="py-5">
       <div className="container">
