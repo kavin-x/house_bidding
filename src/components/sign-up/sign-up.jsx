@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createAuthUserWithEmailAndPassword } from "../../utils/firebase";
 import './sign-up.css';
 import "bootstrap/dist/css/bootstrap.min.css"
+import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
     username : "",
@@ -13,6 +14,7 @@ const defaultFormFields = {
 function SignUp(){
     const [formFields,setFormFields] = useState(defaultFormFields);
     const {username,email,password,confirmPassword } = formFields;
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const {name,value} = event.target;
@@ -32,6 +34,7 @@ function SignUp(){
        try{
         await createAuthUserWithEmailAndPassword(email,password);
         resetFormFields();
+        navigate('/');
        }catch(error){
         if(error.code === 'auth/email-already-in-use'){
             alert("Account is already in use");

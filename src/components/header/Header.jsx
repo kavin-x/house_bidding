@@ -1,9 +1,12 @@
 import { Flex, Heading, Button,  HStack, chakra, ButtonGroup, useBreakpointValue, Divider } from '@chakra-ui/react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 import NavMobile from './NavMobile';
 
 const Header = () => {
-  const isDesktop = useBreakpointValue({ base: false, lg: true })
+  const isDesktop = useBreakpointValue({ base: false, lg: true });
+  const {currentUser,logout} = useContext(AuthContext)
 
   return (
     <chakra.header id="header" borderBottom='1px solid rgb(0,0,0,0.3)'>
@@ -23,10 +26,22 @@ const Header = () => {
             </ButtonGroup>
 
             <HStack>
-              <Button size='sm' variant='solid'>Contact</Button>
-              <Button size='sm' variant='outline'>Sign up</Button>
-            </HStack>
+              {
+                currentUser ? (
+                  
+                  <Link to='/'><Button size='sm' variant='outline' onClick={() => logout()}>Logout</Button></Link>
+                ) : (
+                  <HStack>
+                  <Link to='/signin'><Button size='sm' variant='outline'>Sign In</Button></Link> 
+                  <Link to='/signup'><Button size='sm' variant='solid'>Register</Button></Link>
+                  </HStack>
+                )
+              }
+              
+             
+            </HStack> 
           </>
+           
           ) : (
             <NavMobile />
           )

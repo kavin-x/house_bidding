@@ -4,8 +4,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/storage';
 import { serverTimestamp } from 'firebase/firestore'
 import { initializeApp } from "firebase/app";
-import { getAuth,
-        createUserWithEmailAndPassword,
+import { createUserWithEmailAndPassword,
         signInWithEmailAndPassword,
         signInWithPopup,
         GoogleAuthProvider,
@@ -24,13 +23,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseapp = firebase.initializeApp(firebaseConfig);
-const auth = getAuth(firebaseapp);
+export const authApp = firebaseapp.auth()
 const provider = new GoogleAuthProvider();
 
 export const createAuthUserWithEmailAndPassword = async(email,password) => {
     if(!email || !password) return
 
-    await createUserWithEmailAndPassword(auth,email,password).then(() => { 
+    await createUserWithEmailAndPassword(authApp,email,password).then(() => { 
         alert("account has been created successfully")});
 }
 
@@ -41,14 +40,13 @@ export const signInWithGooglePopup = async() => {
 export const signInUserWithEmailAndPassword = async(email,password) =>{
     if(!email || !password) return
 
-    await signInWithEmailAndPassword(auth,email,password).then((UserCredential) => {
+    await signInWithEmailAndPassword(authApp,email,password).then((UserCredential) => {
         const h = UserCredential.user;
         console.log(h);
-        alert("User signed In");
     })
 }
 
-export const signOutUser = async() => { signOut(auth).then(() => console.log("signed out") ) }
+export const signOutUser = async() => { signOut(authApp).then(() => console.log("signed out") ) }
 
 let db = firebase.firestore();
  
@@ -56,5 +54,5 @@ export default db;
 export const timestamp = serverTimestamp();
 export const firestoreApp = firebaseapp.firestore();
 export const storageApp = firebaseapp.storage();
-export const authApp = firebaseapp.auth();
+
 

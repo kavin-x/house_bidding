@@ -8,7 +8,8 @@ export const NavComp = () => {
   const { currentUser, logout } = useContext(AuthContext);
 
   return (
-    <nav className="container navbar sticky-top navbar-light bg-light">
+    <div>
+      {/* <nav className="container navbar sticky-top navbar-light bg-light">
       <div className="container-fluid">
         <div className="navbar-brand">
           
@@ -36,6 +37,7 @@ export const NavComp = () => {
           </div>
         </div>
       </div>
-    </nav>
+            </nav> */}
+    </div>
   );
 };

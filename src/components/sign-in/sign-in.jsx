@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { signInUserWithEmailAndPassword, signInWithGooglePopup, signOutUser } from "../../utils/firebase";
 import GoogleButton from "react-google-button";
 import "bootstrap/dist/css/bootstrap.min.css"
 import './sign-in.css'
+import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
     email: "",
@@ -10,11 +11,14 @@ const defaultFormFields = {
 }
 
 function SignIn(){
+    
     const [formFields,setFormFields] = useState(defaultFormFields);
     const { email,password } = formFields;
+    const navigate = useNavigate();
     const resetFormFields = () =>{
         setFormFields(defaultFormFields);
     }
+    
 
     const handleChange = (event) => {
        const {name,value} = event.target;
@@ -26,6 +30,7 @@ function SignIn(){
        try{
         await signInUserWithEmailAndPassword(email,password);
         resetFormFields();
+        navigate('/');
        }catch(error){
         switch (error.code) {
             case 'auth/wrong-password':
@@ -74,9 +79,9 @@ function SignIn(){
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <div type="submit" className="btn btn-primary w-1/2">
+            <button type="submit" className="btn btn-primary w-1/2">
               Log In
-            </div>
+            </button>
           </div>
           <p className="forgot-password text-right mt-2">
             Don't have an Account ?<a href="#"> Sign Up</a>
