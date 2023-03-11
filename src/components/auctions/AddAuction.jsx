@@ -3,7 +3,7 @@ import React, { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 export const AddAuction = ({ setAuction }) => {
-
+  
   const [showForm, setShowForm] = useState(false);
   const [error, setError] = useState("");
   const itemTitle = useRef();
@@ -19,7 +19,7 @@ export const AddAuction = ({ setAuction }) => {
   const address = useRef();
   const country = useRef();
   const agentname = useRef();
-  const agentnumber = useRef();
+  const agentnumber = useRef();   
 
   const { currentUser } = useContext(AuthContext);
 
