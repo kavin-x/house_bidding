@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = (email, password) => {
     return authApp.signInWithEmailAndPassword(email, password);
+    
   };
 
   const logout = () => {

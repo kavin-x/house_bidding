@@ -18,11 +18,9 @@ const Header = () => {
           isDesktop ? (
           <>
             <ButtonGroup as='nav' variant='link' spacing='5'>
-                {
-                  ['Home', 'Features', 'About Us'].map((item)=>(
-                    <Button fontSize='16px' key={item}>{item}</Button>
-                    ))
-                }
+                <Link to='/'><Button fontSize='16px'>Home</Button></Link>
+                <Link to='/buy'><Button fontSize='16px'>Buy</Button></Link>
+                <Link to='/sell'><Button fontSize='16px'>Sell</Button></Link>
             </ButtonGroup>
 
             <HStack>

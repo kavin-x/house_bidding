@@ -1,9 +1,28 @@
 import { useContext, useState } from "react"
 import { signInUserWithEmailAndPassword, signInWithGooglePopup, signOutUser } from "../../utils/firebase";
-import GoogleButton from "react-google-button";
 import "bootstrap/dist/css/bootstrap.min.css"
-import './sign-in.css'
 import { useNavigate } from "react-router-dom";
+import Header from "../header/Header";
+import {
+  Flex,
+  Box,
+  FormControl,
+  FormLabel,
+  InputRightElement,
+  Input,
+  Checkbox,
+  Center,
+  Stack,
+  Link,
+  Button,
+  Heading,
+  Text,
+  useColorModeValue,
+  InputGroup,
+} from '@chakra-ui/react';
+import { FcGoogle } from 'react-icons/fc';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
+import { AuthContext } from "../../context/AuthContext";
 
 const defaultFormFields = {
     email: "",
@@ -15,6 +34,7 @@ function SignIn(){
     const [formFields,setFormFields] = useState(defaultFormFields);
     const { email,password } = formFields;
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
     const resetFormFields = () =>{
         setFormFields(defaultFormFields);
     }
@@ -31,6 +51,7 @@ function SignIn(){
         await signInUserWithEmailAndPassword(email,password);
         resetFormFields();
         navigate('/');
+        
        }catch(error){
         switch (error.code) {
             case 'auth/wrong-password':
@@ -50,50 +71,74 @@ function SignIn(){
     }
     
     return(
-      <div className="Auth-form-container">
-      <form className="Auth-form" onSubmit={handleSubmit}>
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign In</h3>
-          <div className="form-group mt-3">
-            <label>Email address</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              placeholder="Enter email"
-              name="email"
-              value={email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control mt-1"
-              placeholder="Enter password"
-              value={password}
-              name="password"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary w-1/2">
-              Log In
-            </button>
-          </div>
-          <p className="forgot-password text-right mt-2">
-            Don't have an Account ?<a href="#"> Sign Up</a>
-          </p>
-          <div className="google">
-          <p className="or">or</p>
-          <div className="google-btn">
-          <GoogleButton onClick={signInPopUp}></GoogleButton>
-          </div>
-          </div>
-        </div>
-      </form>
+      <div>
+      <Header/>
+      <form onSubmit={handleSubmit}>
+      <Flex
+      minH={'25vh'}
+      align={'center'}
+      justify={'center'}
+      bg={useColorModeValue('pink.50', 'pink.800')}>
+      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={10} px={10}>
+        <Stack align={'center'}>
+          <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+          <Text fontSize={'lg'} color={'pink.600'}>
+            to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+          </Text>
+        </Stack>
+        <Box
+          rounded={'lg'}
+          bg={useColorModeValue('pink.200', 'pink.700')}
+          boxShadow={'lg'}
+          p={8}>
+          <Stack spacing={4}>
+            <FormControl id="email">
+              <FormLabel>Email address</FormLabel>
+              <Input type="email" name ='email' value={email} onChange={handleChange}  required/>
+            </FormControl>
+            <FormControl id="password">
+              <FormLabel>Password</FormLabel>
+              <InputGroup>
+              <Input type={showPassword ? 'text' : 'password'} name='password' value={password} onChange={handleChange} required/>
+              <InputRightElement h={'full'}>
+                  <Button
+                    variant={'ghost'}
+                    onClick={() =>
+                      setShowPassword((showPassword) => !showPassword)
+                    }>
+                    {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                  </Button>
+                </InputRightElement>
+                </InputGroup>
+            </FormControl>
+            <Stack spacing={10}>
+              
+              <Button
+                type="submit"
+                bg={'pink.400'}
+                color={'white'}
+                _hover={{
+                  bg: 'pink.500',
+                }}>
+                Sign in
+              </Button>
+            </Stack>
+            <span style={{textAlign:'center'}}>or</span>
+            <Button
+          w={'full'}
+          maxW={'md'}
+          variant={'outline'}
+          leftIcon={<FcGoogle />}
+          onClick={signInPopUp}>
+        <Center>
+          <Text>Sign in with Google</Text>
+        </Center>
+      </Button>
+          </Stack>
+        </Box>
+      </Stack>
+    </Flex>
+    </form>
     </div>
     );
 }

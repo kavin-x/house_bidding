@@ -12,6 +12,8 @@ import SignUp from './components/sign-up/sign-up'
 import SignIn from './components/sign-in/sign-in'
 import { NavComp } from './authentication/NavComp';
 import { AuctionBody } from './components/auctions/Body';
+import Buy from './components/buy and sell/buy';
+import Sell from './components/buy and sell/sell';
 
 const App = () => {
   return (
@@ -26,6 +28,8 @@ const App = () => {
           <Route path='property-details' element={ <PropertyDetails /> } >
             <Route path=":propertyId" element={<HouseDetails />} />
           </Route>
+          <Route path='/sell' element={<Sell/>} />
+          <Route path='/buy' element={<Buy/>} />
           <Route path='/signup' element={<SignUp/>} />
           <Route path='/signin' element={<SignIn/>} />
           <Route path="*"
