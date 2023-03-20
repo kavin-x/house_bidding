@@ -13,7 +13,6 @@ const Home = () => {
       <Header/>
       <Banner /> 
       <BuyHouseList/>
-      <Search />
       <HouseList />
       <AuthProvider>
       <AuctionBody/>

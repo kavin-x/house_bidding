@@ -12,7 +12,6 @@ export const useFirestore = (collection) => {
         documents.push(a);
         
       });
-      console.log(documents);
       setDocs(documents);
       localStorage.setItem("housedata", JSON.stringify(documents));
     });
