@@ -1,4 +1,4 @@
-import { Textarea, Image, VStack, HStack, Box, Text, Input, Button } from '@chakra-ui/react'
+import { Textarea, VStack, HStack, Box, Text, Input, Button } from '@chakra-ui/react'
 
 const Form = ({searchedHouse}) => {
   return (
