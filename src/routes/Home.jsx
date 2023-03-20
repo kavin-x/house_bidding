@@ -12,15 +12,7 @@ const Home = () => {
     <>
       <Header/>
       <Banner /> 
-<<<<<<< HEAD
       <BuyHouseList/>
-=======
-      <Search />
-      <HouseList />
-      <AuthProvider>
-      <AuctionBody/>
-      </AuthProvider>
->>>>>>> 0321263e5023e26390968fd65c37c9cd6c681461
     </>
   )
 }

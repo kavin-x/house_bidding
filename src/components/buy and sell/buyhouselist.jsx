@@ -36,7 +36,7 @@ const BuyHouseList = () => {
     <Grid my='3' rowGap='4' gridTemplateColumns='repeat(auto-fit, minmax(300px, 1fr))' 
     >
       {
-        currentUser ? (
+        currentUser  ? (
             docs && docs.filter(doc => doc.email !== currentUser.email).map((doc) =>
             <Link to={`/property-details/${doc.id}`} key={doc.id}>
             <AuctionCard key={doc.id} item={doc} />
@@ -44,11 +44,11 @@ const BuyHouseList = () => {
             )
         )  :    (
             docs && 
-            docs.map(doc=> {
+            docs.map(doc=> 
           <Link to={`/property-details/${doc.id}`} key={doc.id}>
             <AuctionCard key={doc.id} item={doc} />
           </Link>
-          })
+          )
       )
     }
     </Grid>
