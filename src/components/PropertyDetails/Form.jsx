@@ -1,29 +1,121 @@
-import { Textarea, VStack, HStack, Box, Text, Input, Button } from '@chakra-ui/react'
+import {
+  Heading,
+  Avatar,
+  Box,
+  Center,
+  Image,
+  Flex,
+  Text,
+  Stack,
+  Button,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
-const Form = ({searchedHouse}) => {
+export default function Form({searchedHouse}) {
+  const {bidAuction,endAuction,currentUser} = useContext(AuthContext);
   return (
-    <VStack border='1px' borderColor='pink.100' boxShadow='md' px='5' py='6'>
-        <HStack>
-            {/* <Image borderRadius='full' boxSize='75px' src={searchedHouse.agent.image} /> */}
-            <Box>
-                <Text mb='-3px' fontWeight='extrabold' fontSize='15px'>Name : {searchedHouse.agentname}</Text>
-                <Text mb='-3px' fontWeight='extrabold' fontSize='15px'>Call : {searchedHouse.agentnumber}</Text>
-            </Box>
-        </HStack>
+    <div style={{marginBottom:100}}>
+    <Center>
+      <Box
+        maxW={'270px'}
+        w={'400px'}
+        bg={useColorModeValue('white', 'gray.800')}
+        boxShadow={'2xl'}
+        rounded={'md'}
+        overflow={'hidden'}>
+        <Image
+          h={'120px'}
+          w={'full'}
+          src={
+            'https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
+          }
+          objectFit={'cover'}
+        />
+        <Flex justify={'center'} mt={-12}>
+          <Avatar
+            size={'xl'}
+            src={
+              'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
+            }
+            alt={'Author'}
+            css={{
+              border: '2px solid white',
+            }}
+          />
+        </Flex>
 
-        <VStack my='3px' spacing='2px'>
-            <form>
-                <Input mt='3' mb='2' placeholder="Name*" />
-                <Input placeholder="Email*" />
-                <Input my='2' placeholder="Phone*" />
-                <Textarea my='2' placeholder='Message*' size='sm'  defaultValue='Hello, I am interested in [Modern apartment]' />
-                <HStack my='2'>
-                    <Button w='full' px='4'>Send Message</Button>
-                </HStack>
-            </form>
-        </VStack>
-    </VStack>
-  )
+        <Box p={6}>
+          <Stack spacing={0} align={'center'} mb={5}>
+            <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
+              John Doe
+            </Heading>
+            <Text color={'gray.500'}>Frontend Developer</Text>
+          </Stack>
+
+          <Stack direction={'row'} justify={'center'} spacing={6}>
+            <Stack spacing={0} align={'center'}>
+              <Text fontWeight={600}>23k</Text>
+              <Text fontSize={'sm'} color={'gray.500'}>
+                Followers
+              </Text>
+            </Stack>
+            <Stack spacing={0} align={'center'}>
+              <Text fontWeight={600}>23k</Text>
+              <Text fontSize={'sm'} color={'gray.500'}>
+                Followers
+              </Text>
+            </Stack>
+          </Stack>
+          {!currentUser ? (
+            <Button
+            w={'full'}
+            mt={8}
+            bg={useColorModeValue('pink.500', 'pink')}
+            color={'white'}
+            onClick={() => alert("Please login to bid")}
+            rounded={'md'}
+            _hover={{
+              transform: 'translateY(-2px)',
+              boxShadow: 'lg',
+            }}>
+            Bid
+          </Button>
+                
+              ) : searchedHouse.email === currentUser.email ? (
+                <Button
+            w={'full'}
+            mt={8}
+            bg={useColorModeValue('pink.500', 'pink')}
+            color={'white'}
+            onClick={() => endAuction(searchedHouse.id)}
+            rounded={'md'}
+            _hover={{
+              transform: 'translateY(-2px)',
+              boxShadow: 'lg',
+            }}>
+            Cancel Auction
+          </Button>
+              ) : (
+                <Button
+            w={'full'}
+            mt={8}
+            bg={useColorModeValue('pink.500', 'pink')}
+            color={'white'}
+            onClick={() => bidAuction(searchedHouse.id, searchedHouse.curPrice)}
+            rounded={'md'}
+            _hover={{
+              transform: 'translateY(-2px)',
+              boxShadow: 'lg',
+            }}>
+            Bid
+          </Button>
+              )}
+        </Box>
+      </Box>
+    </Center>
+    </div>
+  );
 }
-
-export default Form

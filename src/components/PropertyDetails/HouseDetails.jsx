@@ -20,7 +20,7 @@ const HouseDetails = () => {
     JSON.parse(localStorage.getItem("housedata"))
   );
   const { propertyId } = useParams();
-  const { bidAuction } = useContext(AuthContext);
+  const { bidAuction ,currentUser,endAuction} = useContext(AuthContext);
   const searchedHouse = info.find((house) => house.id == propertyId);
   return (
     <>
@@ -31,14 +31,12 @@ const HouseDetails = () => {
         my="28px"
       >
         <Box>
-          <Heading fontSize="22px">{searchedHouse.name}</Heading>
-          <Text px="3" borderRadius="full" bg="orange.300">
-            {searchedHouse.address}
-          </Text>
+        <Heading fontSize='22px'>{searchedHouse.title}</Heading>
+          <Text fontSize='15px'>{searchedHouse.address}</Text>
         </Box>
         <HStack>
           <Text px="3" borderRadius="full" bg="green.300">
-            {searchedHouse.title}
+            {searchedHouse.type}
           </Text>
           <Text px="3" borderRadius="full" bg="purple.300">
             {searchedHouse.country}
@@ -49,15 +47,14 @@ const HouseDetails = () => {
         </Text>
       </Stack>
       <Stack
-        direction={{ base: "column", lg: "row" }}
+        direction={{ base:"column", lg: "row" }}
         gap="6"
-        align="flex-start"
       >
-        <VStack align="left" maxW="640px">
-          <Image src={searchedHouse.imgUrl} width="600px" height="400px" />
+        <VStack align="centre" maxW="1040px">
+          <Image src={searchedHouse.imgUrl} width="700px" height="400px" />
           <Stack
             py="10px"
-            spacing={{ sm: "3", md: "5" }}
+            spacing={{ sm: "5", md: "10" }}
             direction={{ base: "column", md: "row" }}
           >
             <HStack>
@@ -74,15 +71,11 @@ const HouseDetails = () => {
             </HStack>
           </Stack>
           <Text> {searchedHouse.desc}</Text>
-          <div
-            onClick={() => bidAuction(searchedHouse.id, searchedHouse.curPrice)}
-            className="btn btn-outline-secondary"
-          >
-            Bid
-          </div>
+         
         </VStack>
-        <Form searchedHouse={searchedHouse} />
+        <Form searchedHouse={searchedHouse}/>
       </Stack>
+      
     </>
   );
 };

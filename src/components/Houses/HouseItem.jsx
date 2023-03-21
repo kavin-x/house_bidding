@@ -31,12 +31,23 @@ const HouseItem = ({days, hours, minutes, seconds, completed, props}) => {
             </Text>
 
             <Heading fontSize="24px" letterSpacing="tight">
-            {props.item.name}
+            {props.item.title}
             </Heading>
 
             <Text fontSize="13px" color="grey">
              {props.item.address}
             </Text>
+             <div className="card-body">
+          <div className="d-flex jsutify-content-between align-item-center">
+            <h5>
+              {days * 24 + hours} hr: {minutes} min: {seconds} sec
+            </h5>
+          </div>
+          <div className="d-flex justify-content-between align-item-center">
+            <div>
+            </div>
+          </div>
+        </div>
 
             <Divider my="2.5" />
 
@@ -55,47 +66,7 @@ const HouseItem = ({days, hours, minutes, seconds, completed, props}) => {
                 <BiArea style={{ color: "#D53F8C" }} />
                 <Text fontSize="12px">{props.item.surface}</Text>
             </HStack>
-            
-            </HStack>
-            <div className="card-body">
-          <p className="lead display-10">{props.item.title}</p><br/>
-          <div className="d-flex jsutify-content-between align-item-center">
-            <h5>
-              {days * 24 + hours} hr: {minutes} min: {seconds} sec
-            </h5>
-          </div>
-          <div className="d-flex justify-content-between align-item-center">
-            <div>
-              {!props.owner ? (
-                <div
-                  onClick={() => props.bidAuction()}
-                  className="btn btn-outline-secondary"
-                >
-                  Bid
-                </div>
-              ) : props.owner.email === props.item.email ? (
-                <Button p={{base: 3, md: 2}} size="100%"
-                  onClick={() => props.endAuction(props.item.id)}
-                 
-                >
-                  Cancel Auction
-                </Button>
-              ) : props.owner.email === props.item.curWinner ? (
-                <p className="display-6">Winner</p>
-              ) : (
-                <Button p={{base: 3, md: 2}} size="100%"
-                  onClick={() =>
-                    props.bidAuction(props.item.id, props.item.curPrice)
-                  }
-                 
-                >
-                  Bid
-                </Button>
-              )}
-            </div>
-          </div>
-        </div>
-            
+            </HStack> 
         </VStack>
         </Stack>
     </Flex>
