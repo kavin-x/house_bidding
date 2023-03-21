@@ -168,7 +168,6 @@ export const AddAuction = ({ setAuction }) => {
                 >
                   <option>Apartment</option>
                   <option>House</option>
-                  <option>Construction Site</option>
                 </select>
               </Col>
             </Row>
