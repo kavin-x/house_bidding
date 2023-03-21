@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <>
-      <Stack direction="row" my='6' overflow='hidden'>
+      <Stack direction="row" my='8' overflow='hidden'>
         <VStack
           flexGrow='1'
           px={{ sm: "6", md: "10" }}
@@ -31,8 +31,8 @@ const Banner = () => {
           <Heading fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}>
             Find Real Estate That Suits You.
           </Heading>
-          <Text fontSize="lg" pt={5}>
-            Buy or sell a property in Estatery at the best price . It always finds you a better a price... 
+          <Text fontSize="sm">
+          Estatery is platform where you can buy or sell your property at any time and  offers an environment which connnects people with real estate intrests . It always finds you a better price...
           </Text>
           <Box pt="3" pb="8">
             <Link to='/buy'><Button>Get Started</Button></Link>

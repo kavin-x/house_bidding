@@ -63,7 +63,7 @@ import Agent12 from './assets/images/agents/agent12.png';
 export const housesData = [
   {
     id: 1,
-    type: 'Construction Site',
+    type: 'House',
     name: 'House 1',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',

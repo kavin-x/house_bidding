@@ -84,7 +84,7 @@ function Buy(){
             heading={'Bid'}
             icon={<Icon as={FcDonate} w={10} h={10} />}
             description={
-              'Your single bid is calculated by the (current bid/100)*110.You can bid many times within the deadline of the period.'
+              'Your single bid is calculated by 10% of the current bid.You can bid many times within the deadline of the period.'
             }
           />
           <Card
