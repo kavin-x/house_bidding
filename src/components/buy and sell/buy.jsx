@@ -19,6 +19,7 @@ import {
   FcDonate,
   FcSearch,
 } from 'react-icons/fc';
+import HouseList from "../Houses/HouseList";
 
 
 const Card = ({ heading, description, icon, href }) => {
@@ -76,21 +77,21 @@ function Buy(){
             heading={'Search'}
             icon={<Icon as={FcSearch} w={10} h={10} />}
             description={
-              'Lorem ipsum dolor sit amet catetur, adipisicing elit.'
+              'Search for the property that suits your expectations and start bidding. '
             }
           />
           <Card
             heading={'Bid'}
             icon={<Icon as={FcDonate} w={10} h={10} />}
             description={
-              'Lorem ipsum dolor sit amet catetur, adipisicing elit.'
+              'Your single bid is calculated by the (current bid/100)*110.You can bid many times within the deadline of the period.'
             }
           />
           <Card
             heading={'Buy'}
             icon={<Icon as={FcPaid} w={10} h={10} />}
             description={
-              'Lorem ipsum dolor sit amet catetur, adipisicing elit.'
+              'Property will be won buy the person who bid the highest amount during the auction. '
             }
           />
         </Flex>

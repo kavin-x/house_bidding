@@ -13,6 +13,7 @@ import { BiPlus } from "react-icons/bi";
 import { bannerData } from "../data";
 import Apartment1Lg from "../assets/images/apartments/a1lg.png";
 import Apartment6Lg from "../assets/images/apartments/a6lg.png";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -30,13 +31,11 @@ const Banner = () => {
           <Heading fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}>
             Find Real Estate That Suits You.
           </Heading>
-          <Text fontSize="sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
-            fugit illo? Delectus, voluptas unde quae cupiditate at amet beatae
-            totam!
+          <Text fontSize="lg" pt={5}>
+            Buy or sell a property in Estatery at the best price . It always finds you a better a price... 
           </Text>
           <Box pt="3" pb="8">
-            <Button>Get Started</Button>
+            <Link to='/buy'><Button>Get Started</Button></Link>
           </Box>
 
           <HStack spacing="3">

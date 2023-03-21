@@ -43,7 +43,7 @@ const HouseDetails = () => {
           </Text>
         </HStack>
         <Text fontWeight="extrabold" fontSize="20px" color="pink.500">
-          Rs.{searchedHouse.curPrice}
+          ${searchedHouse.curPrice}
         </Text>
       </Stack>
       <Stack

@@ -1,11 +1,14 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 
-import { ButtonGroup, VStack, Input, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Button, IconButton, useDisclosure, Center } from '@chakra-ui/react';
+import { ButtonGroup, VStack, Input, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Button, IconButton, useDisclosure, Center,Heading } from '@chakra-ui/react';
 import { FiMenu } from 'react-icons/fi';
+import { AuthContext } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 const NavMobile = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
+  const {currentUser,logout} = useContext(AuthContext);
   
   return (
     <>
@@ -18,19 +21,29 @@ const NavMobile = () => {
             <DrawerOverlay />
             <DrawerContent>
                 <DrawerCloseButton />
+                <DrawerBody px='1' mt='4'>
                 <Center>
-                <DrawerHeader>Menu</DrawerHeader>
-                </Center>
-                <DrawerBody px='14' mt='4'>
-                    <VStack as='nav' spacing='8' alignItems='left'>
-                        {
-                            ['Home', 'Features', 'About Us'].map((item)=>(
-                                <Button variant='link' key={item}>{item}</Button>
-                            ))
-                        }
-                        <Button size='sm' variant='solid'>Contact</Button>
-                        <Button size='sm' variant='outline'>Sign up</Button>
+                    <VStack as='nav' spacing='8' alignItems='right'>
+                    <Link to='/'>
+          <Heading fontSize='3xl' color='pink.700'>Estatery</Heading>
+        </Link>
+                    <Link to='/'><Button variant='link'size='md'>home</Button></Link>
+                    <Link to='/buy'><Button variant='link' size='md'>buy</Button></Link>
+                    <Link to='/sell'><Button variant='link' size='md'>sell</Button></Link>
+                    {
+                currentUser ? (
+                  
+                  <Link to='/'><Button size='sm' variant='outline' onClick={() => logout()}>Logout</Button></Link>
+                ) : (
+                  <VStack as='nav' spacing='8' alignItems='right'>
+                  <Link to='/signin'><Button size='sm' variant='outline'>Sign In</Button></Link> 
+                  <Link to='/signup'><Button size='sm' variant='solid'>Register</Button></Link>
+                  </VStack>
+                )
+              }
+                
                     </VStack>
+                    </Center>
                 </DrawerBody>
             </DrawerContent>
         </Drawer>

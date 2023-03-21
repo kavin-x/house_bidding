@@ -63,8 +63,7 @@ function Sell(){
         Value For Your Valuables.
         </Heading>
         <Text color={'gray.600'} fontSize={{ base: 'sm', sm: 'lg' }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-          obcaecati ut cupiditate pariatur, dignissimos, placeat amet officiis.
+        Read the below process to understand the selling process.
         </Text>
       </Stack>
 
@@ -74,21 +73,21 @@ function Sell(){
             heading={'Upload'}
             icon={<Icon as={FcHome} w={10} h={10} />}
             description={
-              'Lorem ipsum dolor sit amet catetur, adipisicing elit.'
+              'Post your property with the neccessary details and set the auction timing before posting it .'
             }
           />
           <Card
             heading={'Wait'}
             icon={<Icon as={FcAreaChart} w={10} h={10} />}
             description={
-              'Lorem ipsum dolor sit amet catetur, adipisicing elit.'
+              'You have to wait untill the process completes.The highest bid will be calculated at the end of the time'
             }
           />
           <Card
             heading={'Get Paid'}
             icon={<Icon as={FcDebt} w={10} h={10} />}
             description={
-              'Lorem ipsum dolor sit amet catetur, adipisicing elit.'
+              'The highest bidded amount by the buyer is declared as the winner at the end of the time.'
             }
           />
         </Flex>

@@ -27,7 +27,7 @@ const HouseItem = ({days, hours, minutes, seconds, completed, props}) => {
 
         <VStack p='4' align='left'>
             <Text mt="-1" fontWeight="extrabold" fontSize="18px" color="pink.500">
-            Current Bid Rs.{props.item.curPrice}
+            Current Bid ${props.item.curPrice}
             </Text>
 
             <Heading fontSize="24px" letterSpacing="tight">

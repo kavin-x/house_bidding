@@ -30,7 +30,7 @@ export default function Form({searchedHouse}) {
           h={'120px'}
           w={'full'}
           src={
-            'https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAAC/CAMAAAA1kLK0AAAAbFBMVEX6Z8L6Z8T8Zsb1a8C0iaD6ab70bb79Z8P6acH8Z8D7Z7z4acT6aMP6ZsT2acL7ZsHqc7bvbrvta8DqdMD/ZcX0abnzbMH3aMb/Y8L9ZMPfbbLmbbr0arf0y/DkvOPer9LSosLFmbi3jay7i7PAGFq9AAACx0lEQVR4nO3Vi26bMABAUdOM2DQG1i19ZO91//+Pa5KbgqHdsmlSJnGPigi2Meg2VcPbm/VqtV64u3fvw00dY9/HZdtuU7jt2zZ3uXoSRscgVNO5cqSazU+GpiPTrYbtXtsqzLYK573ZK4+ZbbXbhtA8bHN316VFy3EdmuaqqbsuLFvfhdS3zfXm0i/yHzAEDHGQDHFkiKNoCGRDHPmNgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGgCFgCBgChoAhYAgYAoaAIWAIGAKGQA4pX8XrfOn3uLRqE9L99qFpQ9/H+HRwOnyMMZ6uytPocr9mrxicb/U8MR08PqQ/bVWuGS3ti4/zwemjyq368chLW8X2PnT3sWk26dK/kn/pz7/fMW5C08brOoWcqzwcBQYnc+csnc1P7q2mW032L5eWky8/qirvnl3M3+qwR2hSaK5iXadcLVqou6cQu9TlVP+FxDGczl0+nxg+/m7JuY/51S1p+rGJIbVV111Vz39dOe9/Tkc+XZYTh6V5PJ+Hif3YcEdx1/hUbjxemodnPF8Vb1Xe/NLG87eabzVak9IurLv9f9CFa/td+PDx9tNtvVq29adV+Pzl67fvj28W7vHHTwkgekKB123xAAAAAElFTkSuQmCC'
           }
           objectFit={'cover'}
         />
@@ -38,7 +38,7 @@ export default function Form({searchedHouse}) {
           <Avatar
             size={'xl'}
             src={
-              'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
+              'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png'
             }
             alt={'Author'}
             css={{
@@ -50,22 +50,22 @@ export default function Form({searchedHouse}) {
         <Box p={6}>
           <Stack spacing={0} align={'center'} mb={5}>
             <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-              John Doe
+              {searchedHouse.agentname}
             </Heading>
-            <Text color={'gray.500'}>Frontend Developer</Text>
+            <Text color={'gray.500'}>{searchedHouse.agentnumber}</Text>
           </Stack>
 
           <Stack direction={'row'} justify={'center'} spacing={6}>
             <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>23k</Text>
+              <Text fontWeight={600}>{searchedHouse.surface}sq.ft</Text>
               <Text fontSize={'sm'} color={'gray.500'}>
-                Followers
+                Square feet
               </Text>
             </Stack>
             <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>23k</Text>
+              <Text fontWeight={600}>${searchedHouse.curPrice}</Text>
               <Text fontSize={'sm'} color={'gray.500'}>
-                Followers
+                Current Price
               </Text>
             </Stack>
           </Stack>
