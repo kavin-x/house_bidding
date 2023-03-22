@@ -80,8 +80,6 @@ const HouseItem = ({days, hours, minutes, seconds, completed, props}) => {
                 >
                   Cancel Auction
                 </Button>
-              ) : props.owner.email === props.item.curWinner ? (
-                <p className="display-6">Winner</p>
               ) : (
                 <Button p={{base: 3, md: 2}} size="100%"
                   onClick={() =>
