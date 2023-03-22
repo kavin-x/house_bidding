@@ -13,11 +13,12 @@ import { BiPlus } from "react-icons/bi";
 import { bannerData } from "../data";
 import Apartment1Lg from "../assets/images/apartments/a1lg.png";
 import Apartment6Lg from "../assets/images/apartments/a6lg.png";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
     <>
-      <Stack direction="row" my='6' overflow='hidden'>
+      <Stack direction="row" my='8' overflow='hidden'>
         <VStack
           flexGrow='1'
           px={{ sm: "6", md: "10" }}
@@ -31,12 +32,10 @@ const Banner = () => {
             Find Real Estate That Suits You.
           </Heading>
           <Text fontSize="sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
-            fugit illo? Delectus, voluptas unde quae cupiditate at amet beatae
-            totam!
+          Estatery is platform where you can buy or sell your property at any time and  offers an environment which connnects people with real estate intrests . It always finds you a better price...
           </Text>
           <Box pt="3" pb="8">
-            <Button>Get Started</Button>
+            <Link to='/buy'><Button>Get Started</Button></Link>
           </Box>
 
           <HStack spacing="3">

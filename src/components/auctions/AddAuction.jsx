@@ -1,3 +1,8 @@
+
+
+
+
+
 import { Button, Form, Modal, Alert, Row, Col } from "react-bootstrap";
 import React, { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -38,8 +43,8 @@ export const AddAuction = ({ setAuction }) => {
 
     let currentDate = new Date();
 
-    let dueDate = currentDate.setMinutes(
-      currentDate.getHours() + itemDuration.current.value
+    let dueDate = currentDate.setSeconds(
+       itemDuration.current.value * 3600
     );
 
     let newAuction = {

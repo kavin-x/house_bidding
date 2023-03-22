@@ -27,16 +27,27 @@ const HouseItem = ({days, hours, minutes, seconds, completed, props}) => {
 
         <VStack p='4' align='left'>
             <Text mt="-1" fontWeight="extrabold" fontSize="18px" color="pink.500">
-            Current Bid Rs.{props.item.curPrice}
+            Current Bid ${props.item.curPrice}
             </Text>
 
             <Heading fontSize="24px" letterSpacing="tight">
-            {props.item.name}
+            {props.item.title}
             </Heading>
 
             <Text fontSize="13px" color="grey">
              {props.item.address}
             </Text>
+             <div className="card-body">
+          <div className="d-flex jsutify-content-between align-item-center">
+            <h5>
+              {days * 24 + hours} hr: {minutes} min: {seconds} sec
+            </h5>
+          </div>
+          <div className="d-flex justify-content-between align-item-center">
+            <div>
+            </div>
+          </div>
+        </div>
 
             <Divider my="2.5" />
 

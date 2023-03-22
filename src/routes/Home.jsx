@@ -13,10 +13,6 @@ const Home = () => {
       <Header/>
       <Banner /> 
       <BuyHouseList/>
-      <HouseList />
-      <AuthProvider>
-      <AuctionBody/>
-      </AuthProvider>
     </>
   )
 }
