@@ -7,7 +7,7 @@ import PriceFilter from "./PriceFilter";
 import PropertyTypeFilter from "./PropertyTypeFilter";
 
 const Search = () => {
-
+  
   const { searchHandler } = useContext(HouseContext);
 
   return (

@@ -30,8 +30,6 @@ const BuyHouseList = () => {
     );
   }
 
-  
-
   return (
     <Grid my='3' rowGap='4' gridTemplateColumns='repeat(auto-fit, minmax(300px, 1fr))' 
     >

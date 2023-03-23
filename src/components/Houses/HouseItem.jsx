@@ -37,18 +37,6 @@ const HouseItem = ({days, hours, minutes, seconds, completed, props}) => {
             <Text fontSize="13px" color="grey">
              {props.item.address}
             </Text>
-             <div className="card-body">
-          <div className="d-flex jsutify-content-between align-item-center">
-            <h5>
-              {days * 24 + hours} hr: {minutes} min: {seconds} sec
-            </h5>
-          </div>
-          <div className="d-flex justify-content-between align-item-center">
-            <div>
-            </div>
-          </div>
-        </div>
-
             <Divider my="2.5" />
 
             <HStack spacing="5">

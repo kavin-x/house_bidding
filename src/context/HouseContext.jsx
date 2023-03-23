@@ -5,7 +5,7 @@ export const HouseContext = createContext('');
 
 const HouseProvider = ({children}) =>{
 
-    const [houses, setHouses] = useState(housesData);
+    const [houses, setHouses] = useState(JSON.parse(localStorage.getItem("housedata")));
     const [country, setCountry] = useState('Select Country');
     const [countries, setCountries] = useState([]);
     const [price, setPrice] = useState('Select Price');
@@ -45,12 +45,12 @@ const HouseProvider = ({children}) =>{
             if(isDefault(country) && isDefault(price) && isDefault(property) ){
                 return house;
             }
-
+            
             // country is selected
             if(!isDefault(country) && isDefault(price) && isDefault(property)){
                 return house.country === country;
             }
-            
+
             // price is selected
             if(isDefault(country) && !isDefault(price) && isDefault(property)){
                 return (housePrice >= minPrice) && (housePrice <= maxPrice);
@@ -75,7 +75,7 @@ const HouseProvider = ({children}) =>{
             if(isDefault(country) && !isDefault(price) && !isDefault(property)){
                 return (housePrice >= minPrice) && (housePrice <= maxPrice) && house.type === property;
             }
-
+    
             // all are selected 
             if(house.country === country && housePrice >= minPrice && housePrice <= maxPrice && house.type === property){
                 return house;

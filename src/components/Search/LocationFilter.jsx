@@ -1,11 +1,10 @@
 import { Select } from '@chakra-ui/react'
 import { useContext } from 'react';
 import { HouseContext } from '../../context/HouseContext';
+import { useFirestore } from '../../hooks/useFirestore';
 
 const LocationFilter = () => {
-
   const {setCountry, countries} = useContext(HouseContext);
-
   const locationHandler = (event)=> {
     setCountry(event.target.value);
   }
