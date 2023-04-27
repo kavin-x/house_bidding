@@ -4,8 +4,7 @@ import { housesData } from '../data';
 export const HouseContext = createContext('');
 
 const HouseProvider = ({children}) =>{
-
-    const [houses, setHouses] = useState(JSON.parse(localStorage.getItem("housedata")));
+    const [houses, setHouses] = useState(JSON.parse(localStorage.getItem("housedata"))|| []);
     const [country, setCountry] = useState('Select Country');
     const [countries, setCountries] = useState([]);
     const [price, setPrice] = useState('Select Price');
@@ -31,7 +30,7 @@ const HouseProvider = ({children}) =>{
 
     const searchHandler=()=>{
         setIsLoading(true);
-       
+        let housedata = JSON.parse(localStorage.getItem("housedata"))|| []
         // checking selection 
         const isDefault = (str)=> {
             return str.split(' ').includes('Select');
@@ -39,7 +38,7 @@ const HouseProvider = ({children}) =>{
         const minPrice = parseInt(price.split(' ')[0]);
         const maxPrice = parseInt(price.split('- ')[1]);
 
-        const filteredHouses = housesData.filter(house=> {
+        const filteredHouses = housedata.filter(house=> {
             const housePrice = parseInt(house.price);
             // no selection 
             if(isDefault(country) && isDefault(price) && isDefault(property) ){
@@ -87,6 +86,7 @@ const HouseProvider = ({children}) =>{
             filteredHouses.length>0 ? setHouses(filteredHouses) : setHouses([]);
             setIsLoading(false);
         }, 1000);
+        console.log(filteredHouses);
     }
     
     return(
