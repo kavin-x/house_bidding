@@ -7,6 +7,7 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
     return null;
   }
 
+  
   return (
     <div className="col">
       <div className="card shadow-sm">
