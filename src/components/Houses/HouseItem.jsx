@@ -17,9 +17,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import Countdown from "react-countdown";
 import { ReactNotifications, Store } from "react-notifications-component";
+import { Link } from "react-router-dom";
 
 const HouseItem = ({ days, hours, minutes, seconds, completed, props }) => {
   if (completed) {
+
     return (
         <Flex justify="center" align="center">
       <Stack
@@ -65,7 +67,6 @@ const HouseItem = ({ days, hours, minutes, seconds, completed, props }) => {
             <div className="d-flex justify-content-between align-item-center">
               <div>
                 {
-    
                 }
               </div>
             </div>
@@ -76,6 +77,7 @@ const HouseItem = ({ days, hours, minutes, seconds, completed, props }) => {
     );
   }
   return (
+    <Link to={`/property-details/${props.item.id}`} key={props.item.id}>
     <Flex justify="center" align="center">
       <Stack
         justify="center"
@@ -155,6 +157,7 @@ const HouseItem = ({ days, hours, minutes, seconds, completed, props }) => {
         </VStack>
       </Stack>
     </Flex>
+    </Link>
   );
 };
 

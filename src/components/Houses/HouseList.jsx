@@ -33,9 +33,7 @@ const HouseList = () => {
     >
       {
         docs.map(doc=>
-          <Link to={`/property-details/${doc.id}`} key={doc.id}>
             <AuctionCard key={doc.email} item={doc} />
-          </Link>
         )
       }
     </Grid>
